@@ -124,7 +124,7 @@ function Events({ events: allEvents, onDemandEvents, categories }: Props) {
 export async function getStaticProps() {
   const { data: meetups, error } = await supabase
     .from('meetups')
-    .select('id, city, country, link, start_at, timezone, launch_week')
+    .select('id, title, country, link, start_at, display_info')
     .eq('is_published', true)
 
   if (error) console.log('meetups error: ', error)
@@ -133,15 +133,14 @@ export async function getStaticProps() {
     meetups?.map((meetup: any) => ({
       slug: '',
       type: 'event',
-      title: `Launch Week ${meetup.launch_week.slice(2)} Meetup: ${meetup.city}, ${meetup.country}`,
+      title: meetup.title || `Meetup in ${meetup.country}`,
       date: meetup.start_at,
-      description: '',
+      description: meetup.display_info || '',
       thumb: '',
       path: '',
       url: meetup.link ?? '',
-      tags: ['meetup', 'launch-week'],
+      tags: ['meetup'],
       categories: ['meetup'],
-      timezone: meetup.timezone ?? 'America/Los_Angeles',
       disable_page_build: true,
       link: {
         href: meetup.link ?? '#',

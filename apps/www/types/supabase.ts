@@ -7,7 +7,6 @@ export type Database = {
         Row: {
           contact_email: string
           created_at: string | null
-          start_at: string | null
           document: string | null
           id: number
           updated_at: string | null
@@ -15,7 +14,6 @@ export type Database = {
         Insert: {
           contact_email: string
           created_at?: string | null
-          start_at?: string | null
           document?: string | null
           id?: number
           updated_at?: string | null
@@ -23,40 +21,9 @@ export type Database = {
         Update: {
           contact_email?: string
           created_at?: string | null
-          start_at?: string | null
           document?: string | null
           id?: number
           updated_at?: string | null
-        }
-        Relationships: []
-      }
-      lwx_meetups: {
-        Row: {
-          created_at: string | null
-          display_info: string | null
-          id: number
-          isLive: boolean
-          link: string | null
-          start_at: string | null
-          title: string | null
-        }
-        Insert: {
-          created_at?: string | null
-          display_info?: string | null
-          id?: number
-          isLive?: boolean
-          link?: string | null
-          start_at?: string | null
-          title?: string | null
-        }
-        Update: {
-          created_at?: string | null
-          display_info?: string | null
-          id?: number
-          isLive?: boolean
-          link?: string | null
-          start_at?: string | null
-          title?: string | null
         }
         Relationships: []
       }
@@ -64,65 +31,167 @@ export type Database = {
         Row: {
           created_at: string | null
           display_info: string | null
+          edition: string | null
           id: number
           isLive: boolean
+          isPublished: boolean
           link: string | null
-          start_at: string | number
+          start_at: string | null
           title: string | null
         }
         Insert: {
           created_at?: string | null
           display_info?: string | null
+          edition?: string | null
           id?: number
           isLive?: boolean
+          isPublished?: boolean
           link?: string | null
-          start_at?: string | number
+          start_at?: string | null
           title?: string | null
         }
         Update: {
           created_at?: string | null
           display_info?: string | null
+          edition?: string | null
           id?: number
           isLive?: boolean
+          isPublished?: boolean
           link?: string | null
-          start_at?: string | number
+          start_at?: string | null
           title?: string | null
+        }
+        Relationships: []
+      }
+      lw11_tickets: {
+        Row: {
+          company: string | null
+          createdAt: string
+          email: string | null
+          gameWonAt: string | null
+          id: string
+          location: string | null
+          metadata: Json | null
+          name: string | null
+          referred_by: string | null
+          role: string | null
+          sharedOnLinkedIn: string | null
+          sharedOnTwitter: string | null
+          ticketNumber: number
+          username: string | null
+        }
+        Insert: {
+          company?: string | null
+          createdAt?: string
+          email?: string | null
+          gameWonAt?: string | null
+          id?: string
+          location?: string | null
+          metadata?: Json | null
+          name?: string | null
+          referred_by?: string | null
+          role?: string | null
+          sharedOnLinkedIn?: string | null
+          sharedOnTwitter?: string | null
+          ticketNumber?: number
+          username?: string | null
+        }
+        Update: {
+          company?: string | null
+          createdAt?: string
+          email?: string | null
+          gameWonAt?: string | null
+          id?: string
+          location?: string | null
+          metadata?: Json | null
+          name?: string | null
+          referred_by?: string | null
+          role?: string | null
+          sharedOnLinkedIn?: string | null
+          sharedOnTwitter?: string | null
+          ticketNumber?: number
+          username?: string | null
         }
         Relationships: []
       }
       meetups: {
         Row: {
-          id: string
           created_at: string | null
-          title: string | null
           country: string | null
-          start_at: string | null
           display_info: string | null
-          link: string | null
+          id: string | number
           is_live: boolean
           is_published: boolean
+          link: string | null
+          start_at: string | null
+          title: string | null
         }
         Insert: {
-          id?: number
           created_at?: string | null
-          title?: string | null
           country?: string | null
-          start_at?: string | null
           display_info?: string | null
-          link?: string | null
+          id?: number
           is_live?: boolean
           is_published?: boolean
+          link?: string | null
+          start_at?: string | null
+          title?: string | null
         }
         Update: {
-          id?: number
           created_at?: string | null
-          title?: string | null
           country?: string | null
-          start_at?: string | null
           display_info?: string | null
-          link?: string | null
+          id?: number
           is_live?: boolean
           is_published?: boolean
+          link?: string | null
+          start_at?: string | null
+          title?: string | null
+        }
+        Relationships: []
+      }
+      mfa_early_access_contacts: {
+        Row: {
+          company_name: string
+          company_size: string | null
+          contact_email: string
+          contact_first_name: string | null
+          contact_last_name: string | null
+          contact_name: string
+          contact_phone: string | null
+          contacted: boolean
+          country: string | null
+          created_at: string
+          details: string | null
+          id: number
+        }
+        Insert: {
+          company_name: string
+          company_size?: string | null
+          contact_email: string
+          contact_first_name?: string | null
+          contact_last_name?: string | null
+          contact_name: string
+          contact_phone?: string | null
+          contacted?: boolean
+          country?: string | null
+          created_at?: string
+          details?: string | null
+          id?: number
+        }
+        Update: {
+          company_name?: string
+          company_size?: string | null
+          contact_email?: string
+          contact_first_name?: string | null
+          contact_last_name?: string | null
+          contact_name?: string
+          contact_phone?: string | null
+          contacted?: boolean
+          country?: string | null
+          created_at?: string
+          details?: string | null
+          id?: number
         }
         Relationships: []
       }
@@ -251,85 +320,90 @@ export type Database = {
           },
         ]
       }
+      soc2_requests: {
+        Row: {
+          company_name: string
+          company_size: string | null
+          contact_email: string
+          contact_first_name: string | null
+          contact_last_name: string | null
+          contact_name: string
+          contact_phone: string | null
+          contacted: boolean
+          country: string | null
+          created_at: string
+          details: string | null
+          id: number
+        }
+        Insert: {
+          company_name: string
+          company_size?: string | null
+          contact_email: string
+          contact_first_name?: string | null
+          contact_last_name?: string | null
+          contact_name: string
+          contact_phone?: string | null
+          contacted?: boolean
+          country?: string | null
+          created_at?: string
+          details?: string | null
+          id?: number
+        }
+        Update: {
+          company_name?: string
+          company_size?: string | null
+          contact_email?: string
+          contact_first_name?: string | null
+          contact_last_name?: string | null
+          contact_name?: string
+          contact_phone?: string | null
+          contacted?: boolean
+          country?: string | null
+          created_at?: string
+          details?: string | null
+          id?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
-      lwx_tickets_golden: {
-        Row: {
-          createdAt: string | null
-          golden: boolean | null
-          id: string | null
-          metadata: Json | null
-          name: string | null
-          referrals: number | null
-          sharedOnLinkedIn: string | null
-          sharedOnTwitter: string | null
-          ticketNumber: number | null
-          username: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: 'lwx_tickets_id_fkey'
-            columns: ['id']
-            isOneToOne: true
-            referencedRelation: 'users'
-            referencedColumns: ['id']
-          },
-        ]
-      }
       lw11_tickets_platinum: {
         Row: {
+          company: string | null
           createdAt: string | null
-          platinum: boolean | null
           id: string | null
+          location: string | null
           metadata: Json | null
           name: string | null
+          platinum: boolean | null
           referrals: number | null
+          role: string | null
+          secret: boolean | null
           sharedOnLinkedIn: string | null
           sharedOnTwitter: string | null
           ticketNumber: number | null
           username: string | null
-          secret: boolean | null
         }
-        Relationships: [
-          {
-            foreignKeyName: 'lw11_tickets_id_fkey'
-            columns: ['id']
-            isOneToOne: true
-            referencedRelation: 'users'
-            referencedColumns: ['id']
-          },
-        ]
-      }
-      tickets_view: {
-        Row: {
-          created_at: string | null
-          platinum: boolean | null
-          id: string | null
-          metadata: Json | null
-          name: string | null
-          referrals: number | null
-          shared_on_linkedin: string | null
-          shared_on_twitter: string | null
-          ticket_number: number | null
-          username: string | null
-          secret: boolean | null
-          role: string | null
-          company: string | null
-          location: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: 'lw12_tickets_id_fkey'
-            columns: ['id']
-            isOneToOne: true
-            referencedRelation: 'users'
-            referencedColumns: ['id']
-          },
-        ]
+        Relationships: []
       }
     }
-    Functions: {}
+    Functions: {
+      increment_referral: {
+        Args: {
+          username: string
+        }
+        Returns: undefined
+      }
+    }
     Enums: {
+      continents:
+        | 'Africa'
+        | 'Antarctica'
+        | 'Asia'
+        | 'Europe'
+        | 'Oceania'
+        | 'North America'
+        | 'South America'
       partner_type: 'technology' | 'expert'
     }
     CompositeTypes: {
@@ -410,4 +484,19 @@ export type Enums<
   ? Database[PublicEnumNameOrOptions['schema']]['Enums'][EnumName]
   : PublicEnumNameOrOptions extends keyof PublicSchema['Enums']
     ? PublicSchema['Enums'][PublicEnumNameOrOptions]
+    : never
+
+export type CompositeTypes<
+  PublicCompositeTypeNameOrOptions extends
+    | keyof PublicSchema['CompositeTypes']
+    | { schema: keyof Database },
+  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+    schema: keyof Database
+  }
+    ? keyof Database[PublicCompositeTypeNameOrOptions['schema']]['CompositeTypes']
+    : never = never,
+> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicCompositeTypeNameOrOptions['schema']]['CompositeTypes'][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof PublicSchema['CompositeTypes']
+    ? PublicSchema['CompositeTypes'][PublicCompositeTypeNameOrOptions]
     : never
