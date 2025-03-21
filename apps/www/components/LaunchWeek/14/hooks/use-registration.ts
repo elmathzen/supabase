@@ -125,47 +125,23 @@ export const useRegistration = ({ onError, onRegister }: RegistrationProps = {})
     await fetch(`/api-v2/ticket-og?username=${username}`)
   }
 
-  // const handleGithubSignIn = useCallback(async () => {
-  //   const redirectTo = `${LW14_URL}${userData.username ? '?referral=' + userData.username : ''}`
+  const handleGithubSignIn = useCallback(async () => {
+    const redirectTo = `${LW14_URL}${userData.username ? '?referral=' + userData.username : ''}`
 
-  //   const response = await supabase?.auth.signInWithOAuth({
-  //     provider: 'github',
-  //     options: {
-  //       redirectTo,
-  //     },
-  //   })
-
-  //   if (response) {
-  //     if (response.error) {
-  //       callbacksRef.current?.onError?.(response.error)
-  //       return
-  //     }
-  //   }
-  // }, [userData.username])
-
-  const redirectTo = 'http://localhost:3000/launch-week'
-  async function handleGithubSignIn() {
-    // if (formState !== 'default') {
-    //   setFormState('default')
-    //   return
-    // }
-
-    // setFormState('loading')
-    // setTicketState('loading')
-
-    console.log('redirectTo', redirectTo, supabase)
-    alert(redirectTo)
     const response = await supabase?.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: redirectTo,
+        redirectTo,
       },
     })
 
-    console.log('response', response)
-
-    alert('stop')
-  }
+    if (response) {
+      if (response.error) {
+        callbacksRef.current?.onError?.(response.error)
+        return
+      }
+    }
+  }, [userData.username])
 
   useEffect(() => {
     fetchOrCreateUser()
