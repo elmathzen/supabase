@@ -1209,6 +1209,9 @@ importers:
       animejs:
         specifier: ^3.2.2
         version: 3.2.2
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
       classnames:
         specifier: ^2.3.1
         version: 2.3.2
@@ -21924,7 +21927,7 @@ snapshots:
       sirv: 3.0.0
       tinyglobby: 0.2.10
       tinyrainbow: 2.0.0
-      vitest: 3.0.4(@types/node@20.12.11)(@vitest/ui@3.0.4)(jiti@2.4.2)(jsdom@20.0.3(supports-color@8.1.1))(msw@2.4.11(typescript@5.5.2))(sass@1.72.0)(supports-color@8.1.1)(terser@5.39.0)(tsx@4.19.3)(yaml@2.4.5)
+      vitest: 3.0.4(@types/node@20.12.11)(@vitest/ui@3.0.4)(jiti@2.4.2)(jsdom@20.0.3(supports-color@8.1.1))(msw@2.7.3(@types/node@20.12.11)(typescript@5.5.2))(sass@1.72.0)(supports-color@8.1.1)(terser@5.39.0)(tsx@4.19.3)(yaml@2.4.5)
 
   '@vitest/utils@3.0.4':
     dependencies:
